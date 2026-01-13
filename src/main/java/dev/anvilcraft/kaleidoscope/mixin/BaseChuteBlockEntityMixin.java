@@ -56,9 +56,6 @@ public abstract class BaseChuteBlockEntityMixin extends BlockEntity {
     @Shadow
     protected abstract Direction getInputDirection();
 
-    @Shadow
-    public abstract FilteredItemStackHandler getItemHandler();
-
     @WrapOperation(
         method = "tick",
         at = @At(
