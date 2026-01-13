@@ -70,7 +70,7 @@ jobs:
         if: ${{ steps.properties.outputs.upload }}
         continue-on-error: true
         with:
-          name: "${{ steps.properties.outputs.mod_name }} For NeoForge v${{ steps.version.outputs.version }}"
+          name: "${{ steps.properties.outputs.mod_name }} v${{ steps.version.outputs.version }}"
           version: ${{ steps.version.outputs.version }}
           game-versions: 1.21.1
           version-type: ${{ env.VERSION_TYPE }}
