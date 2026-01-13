@@ -6,7 +6,8 @@
   "mixins": [
     "BlockEntityBuilderMixin",
     "CustomDollBlockEntityMixin",
-    "DollBlockMixin"
+    "DollBlockMixin",
+    "BaseChuteBlockEntityMixin"
   ],
   "client": [
     "BlockRenderDispatcherAccessor",

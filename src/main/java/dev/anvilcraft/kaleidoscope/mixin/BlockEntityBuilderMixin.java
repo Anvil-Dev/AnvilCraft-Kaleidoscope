@@ -13,10 +13,8 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.function.IntFunction;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Mixin(BlockEntityBuilder.class)
