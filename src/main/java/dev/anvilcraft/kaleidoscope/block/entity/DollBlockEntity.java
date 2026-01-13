@@ -40,7 +40,7 @@ public class DollBlockEntity extends BlockEntity implements IDollBlockEntityExte
         return this.saveWithoutMetadata(registries);
     }
 
-    @javax.annotation.Nullable
+    @Nullable
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
