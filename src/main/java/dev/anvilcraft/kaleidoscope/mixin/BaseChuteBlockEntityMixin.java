@@ -125,6 +125,7 @@ public abstract class BaseChuteBlockEntityMixin extends BlockEntity {
                                       ? blockEntity.getResult()
                                       : FoodBiteRegistry.getItem(FoodBiteRegistry.DARK_CUISINE).getDefaultInstance();
             if (finallyResult.is(FoodBiteRegistry.getItem(FoodBiteRegistry.SUSPICIOUS_STIR_FRY))) break insert;
+            if(blockEntity.hasCarrier()) break insert;
             ItemStack remaining = ItemHandlerHelper.insertItem(this.itemHandler, finallyResult, true);
             if (remaining.getCount() > 0) break insert;
             success = true;
