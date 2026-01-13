@@ -6,11 +6,15 @@ anvillib = "1.4.0+build.172"
 anvilcraft = "1.5.0+hotfix.1572"
 modDevGradle = "2.0.78"
 lombok = "8.7.1"
+kaleidoscopeCookery = "1.1.2-neoforge+mc1.21.1"
+kaleidoscopeDoll = "1.3.0-neoforge+mc1.21.1"
 
 [libraries]
 registrate = { group = "com.tterrag.registrate", name = "Registrate", version.ref = "registrate" }
 anvillib = { group = "dev.anvilcraft.lib", name = "anvillib-neoforge-1.21.1", version.ref = "anvillib" }
 anvilcraft = { group = "dev.dubhe", name = "anvilcraft-neoforge-1.21.1", version.ref = "anvilcraft" }
+kaleidoscopeCookery = { group = "maven.modrinth", name = "kaleidoscope-cookery", version.ref = "kaleidoscopeCookery" }
+kaleidoscopeDoll = { group = "maven.modrinth", name = "kaleidoscope-doll", version.ref = "kaleidoscopeDoll" }
 
 [plugins]
 modDevGradle = { id = "net.neoforged.moddev", version.ref = "modDevGradle" }

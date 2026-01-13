@@ -1,0 +1,5 @@
+{
+  "com/github/ysbbbbbb/kaleidoscopedoll/block/entity/CustomDollBlockEntity": [
+    "dev/anvilcraft/kaleidoscope/extension/IDollBlockEntityExtension"
+  ]
+}

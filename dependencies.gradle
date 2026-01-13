@@ -9,4 +9,8 @@ dependencies {
     // AnvilCraft
     implementation(libs.anvilcraft) { transitive = false }
     interfaceInjectionData(libs.anvilcraft) { transitive = false }
+
+    // Kaleidoscope
+    implementation(libs.kaleidoscopeCookery)
+    implementation(libs.kaleidoscopeDoll)
 }

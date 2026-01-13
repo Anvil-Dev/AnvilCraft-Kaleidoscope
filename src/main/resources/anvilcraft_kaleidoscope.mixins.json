@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.anvilcraft.kaleidoscope.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockEntityBuilderMixin",
+    "CustomDollBlockEntityMixin",
+    "DollBlockMixin"
+  ],
+  "client": [
+    "BlockRenderDispatcherAccessor",
+    "CustomDollRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

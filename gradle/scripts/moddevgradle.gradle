@@ -6,6 +6,11 @@ neoForge {
         minecraftVersion = project.parchment_minecraft_version
     }
 
+    interfaceInjectionData {
+        from 'src/main/resources/interface_injections.json'
+        publish file('src/main/resources/interface_injections.json')
+    }
+
     var isJbr = System.getProperty('java.vm.vendor').contains('JetBrains')
 
     runs {
