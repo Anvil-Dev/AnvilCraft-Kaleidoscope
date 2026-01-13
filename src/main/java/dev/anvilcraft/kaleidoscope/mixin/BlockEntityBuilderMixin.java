@@ -38,11 +38,10 @@ public class BlockEntityBuilderMixin<T extends BlockEntity, P> implements IBlock
         target = "Ljava/util/stream/Stream;toArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;"
     ))
     protected <A> A[] createEntry(Stream<? extends Block> instance, IntFunction<A[]> intFunction, Operation<A[]> original) {
-        List<Block> collect = instance.collect(Collectors.toList());
-        for (NonNullSupplier<Collection<? extends Block>> validBlocks : anvilcraftKaleidoscope$validBlocks) {
-            collect.addAll(validBlocks.get());
-        }
-        instance = collect.stream();
+        instance = Stream.concat(
+            instance,
+            anvilcraftKaleidoscope$validBlocks.stream().flatMap(sup -> sup.get().stream())
+        );
         return original.call(instance, intFunction);
     }
 }
