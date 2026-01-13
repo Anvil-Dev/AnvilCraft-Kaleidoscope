@@ -15,7 +15,6 @@ import dev.dubhe.anvilcraft.util.dummy.DummyCat;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -122,19 +121,15 @@ public abstract class BaseChuteBlockEntityMixin extends BlockEntity {
         BlockEntity entity = instance.getBlockEntity(relative);
         insert:
         if (entity instanceof PotBlockEntity blockEntity && (blockEntity.getStatus() == 2 || blockEntity.getStatus() == 3)) {
-            DummyCat dummyCat = anvilcraftKaleidoscope$dummyCats.computeIfAbsent(instance, DummyCat::new);
-            dummyCat.setPos(relative.getX() + 0.5, relative.getY() + 0.5, relative.getZ() + 0.5);
             ItemStack finallyResult = blockEntity.getStatus() == 2
                                       ? blockEntity.getResult()
                                       : FoodBiteRegistry.getItem(FoodBiteRegistry.DARK_CUISINE).getDefaultInstance();
             if (finallyResult.is(FoodBiteRegistry.getItem(FoodBiteRegistry.SUSPICIOUS_STIR_FRY))) break insert;
             ItemStack remaining = ItemHandlerHelper.insertItem(this.itemHandler, finallyResult, true);
             if (remaining.getCount() > 0) break insert;
-            success = blockEntity.takeOutProduct(instance, dummyCat, ItemStack.EMPTY);
-            if (!success) break insert;
-            ItemStack itemStack = dummyCat.getMainHandItem();
-            ItemHandlerHelper.insertItem(this.itemHandler, itemStack, false);
-            dummyCat.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+            success = true;
+            ItemHandlerHelper.insertItem(this.itemHandler, finallyResult, false);
+            blockEntity.reset();
         }
         return success ? List.of() : original.call(instance, aClass, aabb, predicate);
     }
