@@ -115,7 +115,14 @@ public abstract class BaseChuteBlockEntityMixin extends BlockEntity {
             ordinal = 1
         )
     )
-    <T extends Entity> List<T> output(Level instance, Class<T> aClass, AABB aabb, Predicate<T> predicate, Operation<List<T>> original) {
+    <T extends Entity> List<T> output(
+        Level instance,
+        Class<T> aClass,
+        AABB aabb,
+        Predicate<T> predicate,
+        Operation<List<T>> original,
+        @Local(name = "resetCD") LocalBooleanRef resetCD
+    ) {
         boolean success = false;
         BlockPos relative = this.getBlockPos().relative(this.getInputDirection());
         BlockEntity entity = instance.getBlockEntity(relative);
@@ -125,13 +132,17 @@ public abstract class BaseChuteBlockEntityMixin extends BlockEntity {
                                       ? blockEntity.getResult()
                                       : FoodBiteRegistry.getItem(FoodBiteRegistry.DARK_CUISINE).getDefaultInstance();
             if (finallyResult.is(FoodBiteRegistry.getItem(FoodBiteRegistry.SUSPICIOUS_STIR_FRY))) break insert;
-            if(blockEntity.hasCarrier()) break insert;
+            if (blockEntity.hasCarrier()) break insert;
             ItemStack remaining = ItemHandlerHelper.insertItem(this.itemHandler, finallyResult, true);
             if (remaining.getCount() > 0) break insert;
             success = true;
             ItemHandlerHelper.insertItem(this.itemHandler, finallyResult, false);
             blockEntity.reset();
         }
-        return success ? List.of() : original.call(instance, aClass, aabb, predicate);
+        if (success) {
+            resetCD.set(true);
+            return List.of();
+        }
+        return original.call(instance, aClass, aabb, predicate);
     }
 }
