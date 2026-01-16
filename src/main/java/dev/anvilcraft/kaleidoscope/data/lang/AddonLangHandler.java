@@ -13,6 +13,7 @@ public class AddonLangHandler {
         provider.add("geometry.anvilcraft.plan.desc", "AnvilCraft (Plan/Designer)");
         provider.add("geometry.anvilcraft.developer.desc", "AnvilCraft (Developer)");
         provider.add("geometry.anvilcraft.contributor.desc", "AnvilCraft (Contributor)");
-        provider.add("geometry.anvilcraft.supporter.desc", "AnvilCraft (Supporter)");
+        provider.add("geometry.anvilcraft.supporter.desc", "AnvilCraft (Supporter)");;
+        provider.add("geometry.anvilcraft.mascot.desc", "AnvilCraft (Mascot)");
     }
 }

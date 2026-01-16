@@ -12,6 +12,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import static dev.anvilcraft.kaleidoscope.AnvilCraftKaleidoscope.REGISTRATE;
 
 
@@ -28,18 +31,38 @@ public class AddonItemGroups {
                 CustomDollItem.setModelId(stack, "geometry.anvilcraft.plan.xe_kr");
                 return stack;
             })
-            .displayItems((ctx, entries) -> ServerCustomDollLoader.getModels().forEach((modelId) -> {
-                if (!modelId.contains(".anvilcraft.")) {
-                    return;
-                }
-                ItemStack dollStack = new ItemStack(ModItems.CUSTOM_DOLL.get());
-                CustomDollItem.setModelId(dollStack, modelId);
-                entries.accept(dollStack);
-            }))
+            .displayItems((ctx, entries) -> {
+                Map<String, ItemStack> customDolls = new TreeMap<>(AddonItemGroups::compareDolls);
+                ServerCustomDollLoader.getModels().forEach((modelId) -> {
+                    if (!modelId.contains(".anvilcraft.")) {
+                        return;
+                    }
+                    ItemStack dollStack = new ItemStack(ModItems.CUSTOM_DOLL.get());
+                    CustomDollItem.setModelId(dollStack, modelId);
+                    customDolls.put(modelId, dollStack);
+                });
+                customDolls.forEach((modelId, dollStack) -> entries.accept(dollStack));
+            })
             .title(REGISTRATE.addLang("itemGroup", AnvilCraftKaleidoscope.of("kaleidoscope_dolls"), "AnvilCraft: Kaleidoscope Dolls"))
             .withTabsBefore(ModItemGroups.ANVILCRAFT_BUILD_BLOCK.getId())
             .build()
     );
+
+    public static int getDollsOrder(String modelId) {
+        if (modelId.startsWith("geometry.anvilcraft.plan.")) return 0;
+        if (modelId.startsWith("geometry.anvilcraft.developer.")) return 1;
+        if (modelId.startsWith("geometry.anvilcraft.mascot.")) return 2;
+        if (modelId.startsWith("geometry.anvilcraft.contributor.")) return 3;
+        if (modelId.startsWith("geometry.anvilcraft.supporter.")) return 4;
+        return 9999;
+    }
+
+    public static int compareDolls(String k1, String k2) {
+        int index1 = getDollsOrder(k1);
+        int index2 = getDollsOrder(k2);
+        if (index1 != index2) return index1 - index2;
+        return k1.compareTo(k2);
+    }
 
     public static void register(IEventBus modEventBus) {
         DEFERRED_REGISTER.register(modEventBus);
