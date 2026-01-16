@@ -1,7 +1,6 @@
 package dev.anvilcraft.kaleidoscope.mixin;
 
 import com.github.ysbbbbbb.kaleidoscopedoll.item.CustomDollItem;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -45,10 +44,10 @@ abstract class CustomDollItemMixin {
         Item.TooltipContext context,
         List<Component> list,
         TooltipFlag flag,
-        CallbackInfo ci,
-        @Local(name = "modelId") String modelId
+        CallbackInfo ci
     ) {
-        if (!modelId.contains(".anvilcraft.")) return;
+        String modelId = getModelId(stack);
+        if (modelId == null || !modelId.contains(".anvilcraft.")) return;
         String[] split = modelId.split("\\.");
         StringBuilder desc = new StringBuilder();
         for (String s : split) {
