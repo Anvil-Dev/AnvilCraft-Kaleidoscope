@@ -4,10 +4,12 @@
   "package": "dev.anvilcraft.kaleidoscope.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BaseChuteBlockEntityMixin",
     "BlockEntityBuilderMixin",
     "CustomDollBlockEntityMixin",
+    "CustomDollItemMixin",
     "DollBlockMixin",
-    "BaseChuteBlockEntityMixin"
+    "RegistrateLangProviderMixin"
   ],
   "client": [
     "BlockRenderDispatcherAccessor",

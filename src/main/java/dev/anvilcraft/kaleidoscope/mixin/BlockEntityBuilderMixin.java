@@ -18,7 +18,7 @@ import java.util.function.IntFunction;
 import java.util.stream.Stream;
 
 @Mixin(BlockEntityBuilder.class)
-public class BlockEntityBuilderMixin<T extends BlockEntity, P> implements IBlockEntityBuilderExtension<T, P> {
+abstract class BlockEntityBuilderMixin<T extends BlockEntity, P> implements IBlockEntityBuilderExtension<T, P> {
     @Unique
     @SuppressWarnings("unchecked")
     private final BlockEntityBuilder<T, P> anvilcraftKaleidoscope$self = (BlockEntityBuilder<T, P>) (Object) this;
