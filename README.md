@@ -9,8 +9,10 @@ Added compatibility for the AnvilCraft mod with the _Kaleidoscope_ series. After
 
 This mod also adds the following content:
 - Custom dolls:
+    - XeKr's doll
     - Gugle's doll
-    - Qiushui's doll
+    - _AnvilCraft_ part contributors' dolls
+    - _AnvilCraft_ part supporters' dolls
 
 ---
 
@@ -21,8 +23,10 @@ This mod also adds the following content:
 
 本模组还添加了以下内容：
 - 自定义玩偶：
+    - XeKr 的玩偶
     - 古镇天的玩偶
-    - 秋水的玩偶
+    - 《铁砧工艺》部分贡献者的玩偶
+    - 《铁砧工艺》部分支持者的玩偶
 
 ---
 
