@@ -3,8 +3,8 @@
 ---
 
 Added compatibility for the _AnvilCraft_ mod with the _Kaleidoscope_ series. After installing this mod, you can:
-- Use hoppers to input items into millstone, stockpot, and pot
-- Use hoppers to output products from pot
+- Use chutes to input items into millstone, stockpot, and pot
+- Use chutes to output products from pot
 - Squeeze dolls from _Kaleidoscope: Dolls_
 
 This mod also adds the following content:
