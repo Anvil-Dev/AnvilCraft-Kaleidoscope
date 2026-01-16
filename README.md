@@ -34,6 +34,7 @@ This mod also adds the following content:
 ![Use hoppers to input items into stockpot](https://cdn.modrinth.com/data/xeCG3WZz/images/62de9cc7d191937cabd202137df1c0b4ad3bc239.png)
 ![Use hoppers to input/output items into pot](https://cdn.modrinth.com/data/xeCG3WZz/images/5cebceaf25e41ae1ff2478ee85aad239c7f00455.png)
 ![Squeeze dolls](https://cdn.modrinth.com/data/xeCG3WZz/images/a4255190672033c71b9a4b18e87e1d0bc148d926.gif)
+![dolls](https://cdn.modrinth.com/data/xeCG3WZz/images/ddcdd54a9c78d6ae5f000675fd97f67e35f9170e.png)
 
 ## License
 
