@@ -8,8 +8,7 @@
     "BlockEntityBuilderMixin",
     "CustomDollBlockEntityMixin",
     "CustomDollItemMixin",
-    "DollBlockMixin",
-    "RegistrateLangProviderMixin"
+    "DollBlockMixin"
   ],
   "client": [
     "BlockRenderDispatcherAccessor",

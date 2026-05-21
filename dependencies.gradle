@@ -1,10 +1,7 @@
 dependencies {
-    // Registrate
-    api(libs.registrate)
-
     // Anvil Lib
     implementation(libs.anvillib)
-    interfaceInjectionData(libs.anvillib)
+    // interfaceInjectionData(libs.anvillib)
 
     // AnvilCraft
     implementation(libs.anvilcraft) { transitive = false }

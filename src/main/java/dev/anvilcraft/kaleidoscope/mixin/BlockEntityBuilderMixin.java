@@ -2,9 +2,9 @@ package dev.anvilcraft.kaleidoscope.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.tterrag.registrate.builders.BlockEntityBuilder;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.anvilcraft.kaleidoscope.extension.IBlockEntityBuilderExtension;
+import dev.anvilcraft.lib.v2.registrum.builders.BlockEntityBuilder;
+import dev.anvilcraft.lib.v2.util.nullness.NonNullSupplier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

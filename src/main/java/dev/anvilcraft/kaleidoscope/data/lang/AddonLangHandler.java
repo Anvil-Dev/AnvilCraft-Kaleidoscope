@@ -1,6 +1,6 @@
 package dev.anvilcraft.kaleidoscope.data.lang;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.anvilcraft.lib.v2.registrum.providers.RegistrumLangProvider;
 
 public class AddonLangHandler {
 
@@ -9,7 +9,7 @@ public class AddonLangHandler {
      *
      * @param provider 提供器
      */
-    public static void init(RegistrateLangProvider provider) {
+    public static void init(RegistrumLangProvider provider) {
         provider.add("geometry.anvilcraft.plan.desc", "AnvilCraft (Plan/Designer)");
         provider.add("geometry.anvilcraft.developer.desc", "AnvilCraft (Developer)");
         provider.add("geometry.anvilcraft.contributor.desc", "AnvilCraft (Contributor)");

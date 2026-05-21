@@ -1,7 +1,7 @@
 package dev.anvilcraft.kaleidoscope.extension;
 
-import com.tterrag.registrate.builders.BlockEntityBuilder;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
+import dev.anvilcraft.lib.v2.registrum.builders.BlockEntityBuilder;
+import dev.anvilcraft.lib.v2.util.nullness.NonNullSupplier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 

@@ -1,17 +1,17 @@
 package dev.anvilcraft.kaleidoscope.init;
 
 import com.github.ysbbbbbb.kaleidoscopedoll.event.ModRegisterEvent;
-import com.tterrag.registrate.Registrate;
-import com.tterrag.registrate.builders.BlockEntityBuilder;
-import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import dev.anvilcraft.kaleidoscope.block.entity.DollBlockEntity;
 import dev.anvilcraft.kaleidoscope.client.renderer.DollBlockEntityRenderer;
 import dev.anvilcraft.kaleidoscope.extension.IBlockEntityBuilderExtension;
+import dev.anvilcraft.lib.v2.registrum.Registrum;
+import dev.anvilcraft.lib.v2.registrum.builders.BlockEntityBuilder;
+import dev.anvilcraft.lib.v2.registrum.util.entry.BlockEntityEntry;
 
 import static dev.anvilcraft.kaleidoscope.AnvilCraftKaleidoscope.REGISTRATE;
 
 public class AddonBlockEntities {
-    public static final BlockEntityBuilder<DollBlockEntity, Registrate> DOLL_BLOCK_BUILDER;
+    public static final BlockEntityBuilder<DollBlockEntity, Registrum> DOLL_BLOCK_BUILDER;
 
     static {
         var builder = REGISTRATE.blockEntity(
@@ -20,7 +20,7 @@ public class AddonBlockEntities {
             )
             .renderer(() -> DollBlockEntityRenderer::new);
         //noinspection unchecked
-        DOLL_BLOCK_BUILDER = ((IBlockEntityBuilderExtension<DollBlockEntity, Registrate>) builder)
+        DOLL_BLOCK_BUILDER = ((IBlockEntityBuilderExtension<DollBlockEntity, Registrum>) builder)
             .anvilcraftKaleidoscope$validBlocks(ModRegisterEvent.DOLL_BLOCKS::values);
     }
 

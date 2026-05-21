@@ -1,6 +1,6 @@
 package dev.anvilcraft.kaleidoscope.data;
 
-import com.tterrag.registrate.providers.ProviderType;
+import dev.anvilcraft.lib.v2.registrum.providers.ProviderType;
 import dev.anvilcraft.kaleidoscope.AnvilCraftKaleidoscope;
 import dev.anvilcraft.kaleidoscope.data.lang.AddonLangHandler;
 import net.neoforged.bus.api.SubscribeEvent;
