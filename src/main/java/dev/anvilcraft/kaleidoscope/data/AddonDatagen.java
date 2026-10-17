@@ -9,7 +9,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import static dev.anvilcraft.kaleidoscope.AnvilCraftKaleidoscope.REGISTRATE;
 
-@EventBusSubscriber(modid = AnvilCraftKaleidoscope.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = AnvilCraftKaleidoscope.MOD_ID)
 public class AddonDatagen {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {}
