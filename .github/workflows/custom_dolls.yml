@@ -1,0 +1,59 @@
+name: Generate Custom Dolls
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Generate custom dolls
+        run: node custom_dolls/generate.ts
+
+      - name: Check for changes
+        id: changed
+        run: |
+          PATHS="src/main/resources/assets/anvilcraft_kaleidoscope/custom_dolls src/main/resources/data/kaleidoscope_dolls/custom_dolls.json"
+          if [ -z "$(git status --porcelain -- $PATHS)" ]; then
+            echo "无新增玩偶"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git status --short -- $PATHS
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: ${{ steps.changed.outputs.changed == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/custom-dolls-$(date -u +%Y%m%d-%H%M%S)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add src/main/resources/assets/anvilcraft_kaleidoscope/custom_dolls \
+                  src/main/resources/data/kaleidoscope_dolls/custom_dolls.json
+          git commit -m "chore(custom_dolls): 同步白名单新增玩偶资源"
+          git push origin "$BRANCH"
+          gh pr create \
+            --base "${{ github.ref_name }}" \
+            --head "$BRANCH" \
+            --title "chore(custom_dolls): 同步白名单新增玩偶资源" \
+            --body "$(printf '%s\n' \
+              '由 Generate Custom Dolls 工作流自动生成。' \
+              '' \
+              '从白名单 API 拉取玩家名单，按「忽略类型、只比名字」过滤已存在的玩偶后，' \
+              '用 model_temp 模板生成模型与贴图，追加语言条目，并登记进 datapack 的 custom_dolls.json。' \
+              '' \
+              '请确认新增玩偶的数量与外观无误后再合并。')"
